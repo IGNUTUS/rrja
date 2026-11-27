@@ -62,13 +62,13 @@ All business content lives in `src/data/`:
 - `images.ts`: image registry, with alt text, credit, licence and source for every photo.
 - `nav.ts`: navigation links.
 
-The **official RRJA logo** (supplied by the client on 27 Nov 2026) is rendered by `src/components/Logo.tsx`. The master file is `public/assets/rrja/logo/rrja-logo-original.png`; the site uses trimmed WebP copies (`rrja-logo-96.webp`, `rrja-logo-192.webp`). The logo is never recoloured. On dark backgrounds (over the hero, in the footer) it sits on a white plate, and the navigation bar turns white on scroll so the logo shows as supplied.
+The **official RRJA logo** (supplied by the client on 27 Nov 2026) is rendered by `src/components/Logo.tsx`. The master file is `public/assets/rrja/logo/rrja-logo-original.png`. `node scripts/build-logo-variants.mjs` generates two transparent variants: **color** (original colours, background removed; used on the white scrolled navbar) and **reverse** (navy parts in white, orange and blue unchanged; used over the dark hero, mobile menu and footer). The reverse variant is derived from the original and should be approved by RRJA. If RRJA supplies its own transparent or dark-background logo, use that instead.
 
 ## Asset directory
 
 ```
 public/assets/rrja/
-  logo/         official logo: original PNG master, web WebP sizes, 1200x630 social image
+  logo/         official logo: original PNG master, transparent color + reverse variants (PNG + WebP), 1200x630 social image
   backgrounds/  hero and section backgrounds (WebP, 800/1600/2400 w)
   cargo/        cargo and port photography
   shipments/    gallery photography

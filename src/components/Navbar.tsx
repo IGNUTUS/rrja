@@ -54,8 +54,8 @@ export default function Navbar() {
       </a>
       <div className="container-x relative z-50 flex items-center justify-between gap-6">
         <Link to="/" className="shrink-0" aria-label="RRJA Customs Brokerage Services, home">
-          {/* White plate over the dark hero; it blends into the white bar once scrolled */}
-          <Logo plate className={`transition-[box-shadow,padding] duration-500 ${solid ? '!px-0 !py-0 !shadow-none' : ''}`} />
+          {/* Reverse (light) logo over the dark hero and menu; full-colour logo on the white scrolled bar */}
+          <Logo variant={solid ? 'color' : 'reverse'} className="drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]" />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
