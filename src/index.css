@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #071629;
+  --color-navy: #0b1f3a;
+  --color-navy-800: #102c4c;
+  --color-royal: #164b83;
+  --color-royal-400: #3a74b3;
+  --color-gold: #d6a84f;
+  --color-gold-300: #e6c584;
+  --color-gold-700: #8a6620; /* gold for small text on light backgrounds (AA contrast) */
+  --color-mist: #f4f6f8;
+  --color-line: #dde3ea;
+  --color-ink: #172536;
+  --color-slate-ink: #4a5a6d;
+
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-kenburns: kenburns 22s var(--ease-premium) both;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.14); }
+    to { transform: scale(1.02); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-white font-sans text-ink;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    @apply bg-gold text-navy;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-sans text-[0.72rem] font-semibold uppercase tracking-[0.28em];
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-current;
+  }
+  .display-xl {
+    @apply font-display font-extrabold uppercase leading-[0.98] tracking-[-0.03em];
+    font-size: clamp(2.6rem, 7vw, 6.2rem);
+  }
+  .display-lg {
+    @apply font-display font-extrabold uppercase leading-[1.02] tracking-[-0.025em];
+    font-size: clamp(2.1rem, 4.6vw, 4rem);
+  }
+  .display-md {
+    @apply font-display font-bold leading-[1.1] tracking-[-0.02em];
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  }
+  .lead {
+    @apply text-[1.05rem] leading-[1.75] sm:text-lg;
+  }
+  .gold-rule {
+    @apply block h-[2px] w-16 bg-gold;
+  }
+}
