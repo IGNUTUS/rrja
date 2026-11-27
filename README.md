@@ -62,13 +62,13 @@ All business content lives in `src/data/`:
 - `images.ts`: image registry, with alt text, credit, licence and source for every photo.
 - `nav.ts`: navigation links.
 
-The logo is a **temporary text wordmark** in `src/components/Wordmark.tsx` (also saved as `public/assets/rrja/logo/rrja-wordmark-temporary.svg`). It is not RRJA's official logo.
+The **official RRJA logo** (supplied by the client on 27 Nov 2026) is rendered by `src/components/Logo.tsx`. The master file is `public/assets/rrja/logo/rrja-logo-original.png`; the site uses trimmed WebP copies (`rrja-logo-96.webp`, `rrja-logo-192.webp`). The logo is never recoloured. On dark backgrounds (over the hero, in the footer) it sits on a white plate, and the navigation bar turns white on scroll so the logo shows as supplied.
 
 ## Asset directory
 
 ```
 public/assets/rrja/
-  logo/         temporary wordmark (replace with official logo)
+  logo/         official logo: original PNG master, web WebP sizes, 1200x630 social image
   backgrounds/  hero and section backgrounds (WebP, 800/1600/2400 w)
   cargo/        cargo and port photography
   shipments/    gallery photography
@@ -93,7 +93,7 @@ All photography is **illustrative** stock from Wikimedia Commons (CC0, public do
 
 Please obtain these from RRJA before launch:
 
-1. **Official logo**, in the best available format (SVG/AI/PDF or high-res PNG), plus brand colours if they exist. The current navy/gold palette is provisional.
+1. ~~Official logo~~ received 27 Nov 2026 as a PNG. Still useful: a **vector version** (SVG/AI/PDF) for sharper rendering, and confirmation of the brand colours (the logo uses navy and orange; the site's gold accent is provisional).
 2. **Exact office address.** The site shows the preliminary *Unit 2-1, 2nd Floor, Tipolo Square, Lopez Jaena St., Tipolo, Mandaue City*. Ideally also a Google Maps share link to replace the search link and enable an embedded map.
 3. **Phone numbers:** confirm +63 32 265 1255 (landline) and +63 917 655 8850 (mobile).
 4. **Email address.** None is shown; none was invented.

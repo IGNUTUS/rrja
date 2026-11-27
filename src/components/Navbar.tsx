@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, Phone, X } from 'lucide-react'
-import Wordmark from './Wordmark'
+import Logo from './Logo'
 import { Button, FacebookIcon } from './ui'
 import { company } from '../data/company'
 import { navLinks } from '../data/nav'
@@ -40,20 +40,22 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
-  const solid = scrolled || open
+  // White bar once scrolled. While the (dark) mobile menu is open the header reverts to its over-hero look.
+  const solid = scrolled && !open
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,padding] duration-500 ${
-        solid ? 'bg-navy/95 py-3 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md' : 'bg-transparent py-6'
+        solid ? 'bg-white/97 py-2.5 shadow-[0_10px_40px_-20px_rgba(11,31,58,0.45)] backdrop-blur-md' : 'bg-transparent py-5'
       }`}
     >
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-gold focus:px-4 focus:py-2 focus:text-navy">
         Skip to content
       </a>
-      <div className="container-x flex items-center justify-between gap-6">
+      <div className="container-x relative z-50 flex items-center justify-between gap-6">
         <Link to="/" className="shrink-0" aria-label="RRJA Customs Brokerage Services, home">
-          <Wordmark />
+          {/* White plate over the dark hero; it blends into the white bar once scrolled */}
+          <Logo plate className={`transition-[box-shadow,padding] duration-500 ${solid ? '!px-0 !py-0 !shadow-none' : ''}`} />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
@@ -63,7 +65,9 @@ export default function Navbar() {
               to={l.to}
               end={l.to === '/'}
               className={({ isActive }) =>
-                `group relative py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`
+                `group relative py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors ${
+                  solid ? (isActive ? 'text-navy' : 'text-navy/65 hover:text-navy') : isActive ? 'text-white' : 'text-white/75 hover:text-white'
+                }`
               }
             >
               {({ isActive }) => (
@@ -86,7 +90,7 @@ export default function Navbar() {
           ref={toggleRef}
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="relative z-50 -mr-2 inline-flex h-11 w-11 items-center justify-center text-white lg:hidden"
+          className={`relative z-50 -mr-2 inline-flex h-11 w-11 items-center justify-center lg:hidden ${solid ? 'text-navy' : 'text-white'}`}
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? 'Close menu' : 'Open menu'}

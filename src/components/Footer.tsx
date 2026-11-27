@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Clock, MapPin, Phone } from 'lucide-react'
-import Wordmark from './Wordmark'
+import Logo from './Logo'
 import { FacebookIcon, Pending } from './ui'
 import { company } from '../data/company'
 import { services } from '../data/services'
@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="h-[2px] w-full bg-gradient-to-r from-gold via-gold/40 to-transparent" />
       <div className="container-x grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
-          <Wordmark />
+          <Logo plate sizeClass="h-12 sm:h-14" className="!px-4 !py-3" />
           <p className="mt-7 max-w-sm text-[0.95rem] leading-relaxed">
             {company.name} is a customs brokerage business based in Mandaue City, Cebu, supporting businesses with their customs processing and
             cargo-related requirements.
