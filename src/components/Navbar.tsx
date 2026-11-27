@@ -54,8 +54,8 @@ export default function Navbar() {
       </a>
       <div className="container-x relative z-50 flex items-center justify-between gap-6">
         <Link to="/" className="shrink-0" aria-label="RRJA Customs Brokerage Services, home">
-          {/* Reverse (light) logo over the dark hero and menu; full-colour logo on the white scrolled bar */}
-          <Logo variant={solid ? 'color' : 'reverse'} className="drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]" />
+          {/* Transparent logo; a soft white edge keeps it legible over the dark hero and menu */}
+          <Logo onDark={!solid} />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">

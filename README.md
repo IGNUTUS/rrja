@@ -62,13 +62,13 @@ All business content lives in `src/data/`:
 - `images.ts`: image registry, with alt text, credit, licence and source for every photo.
 - `nav.ts`: navigation links.
 
-The **official RRJA logo** (supplied by the client on 27 Nov 2026) is rendered by `src/components/Logo.tsx`. The master file is `public/assets/rrja/logo/rrja-logo-original.png`. `node scripts/build-logo-variants.mjs` generates two transparent variants: **color** (original colours, background removed; used on the white scrolled navbar) and **reverse** (navy parts in white, orange and blue unchanged; used over the dark hero, mobile menu and footer). The reverse variant is derived from the original and should be approved by RRJA. If RRJA supplies its own transparent or dark-background logo, use that instead.
+The **official RRJA logo** is the client-supplied transparent PNG (27 Nov 2026), rendered by `src/components/Logo.tsx`. The master is `public/assets/rrja/logo/rrja-logo-transparent.png`, and the site uses trimmed WebP copies (`rrja-logo-96.webp`, `rrja-logo-192.webp`). The artwork is never recoloured. On dark backgrounds a soft white edge reinforces the logo's own light outline. The earlier white-background version, `rrja-logo-original.png`, is kept as the source of the social share image.
 
 ## Asset directory
 
 ```
 public/assets/rrja/
-  logo/         official logo: original PNG master, transparent color + reverse variants (PNG + WebP), 1200x630 social image
+  logo/         official logo: transparent PNG master + WebP sizes, white-background original, 1200x630 social image
   backgrounds/  hero and section backgrounds (WebP, 800/1600/2400 w)
   cargo/        cargo and port photography
   shipments/    gallery photography
@@ -93,7 +93,7 @@ All photography is **illustrative** stock from Wikimedia Commons (CC0, public do
 
 Please obtain these from RRJA before launch:
 
-1. ~~Official logo~~ received 27 Nov 2026 as a PNG. Still useful: a **vector version** (SVG/AI/PDF) for sharper rendering, and confirmation of the brand colours (the logo uses navy and orange; the site's gold accent is provisional).
+1. ~~Official logo~~ received 27 Nov 2026 (transparent PNG). Still useful: a **vector version** (SVG/AI/PDF) for sharper rendering, and confirmation of the brand colours (the logo uses navy and orange; the site's gold accent is provisional).
 2. **Exact office address.** The site shows the preliminary *Unit 2-1, 2nd Floor, Tipolo Square, Lopez Jaena St., Tipolo, Mandaue City*. Ideally also a Google Maps share link to replace the search link and enable an embedded map.
 3. **Phone numbers:** confirm +63 32 265 1255 (landline) and +63 917 655 8850 (mobile).
 4. **Email address.** None is shown; none was invented.
